@@ -1,5 +1,7 @@
 import { Component } from 'react';
 import './App.css';
+import CardList from './components/card-list/card-list.component';
+import SearchBox from './components/search-box/search-box.component';
 
 class App extends Component {
   constructor() {
@@ -41,17 +43,12 @@ class App extends Component {
 
       return (
       <div className="App">
-        <input 
-          className='search-box' 
-          type='search' 
-          placeholder='Search Monsters'
-          //best practice is to move anonymous functions out of onChange attribute and move to its own method/function
-              //WHY? because now the function won't run every time the app rerenders
+        <SearchBox 
+          className='search-box'
+          placeholder='search monsters' 
           onChange={onSearchChange} 
-      />
-        {filteredMonsters.map((monster, i) => {
-          return <h1 key={i}>{monster.name}</h1>
-        })}
+        />
+        <CardList monsters={filteredMonsters}/>
       </div>
     );
   }
