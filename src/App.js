@@ -11,12 +11,9 @@ class App extends Component {
       monsters: [],
       searchField: '',
     }
-    console.log('constructor')
   }
 
   componentDidMount() {
-    console.log('didMount')
-
     fetch('https://jsonplaceholder.typicode.com/users')
       .then(response => response.json())
       .then(users => this.setState(() => {
@@ -32,7 +29,6 @@ class App extends Component {
   }
 
   render() {
-      console.log('render')
       const {monsters, searchField} = this.state
       const {onSearchChange} = this
 
